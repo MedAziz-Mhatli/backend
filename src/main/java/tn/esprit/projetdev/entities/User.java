@@ -22,17 +22,17 @@ public class User {
     private String username;
 
     public String getFullname() {
-        return Fullname;
+        return fullname;
     }
 
     public void setFullname(String fullname) {
-        Fullname = fullname;
+        fullname = fullname;
     }
 
     @Size(max = 20)
-    private String Fullname;
+    private String fullname;
     @Size(max = 20)
-    private String Adresse;
+    private String adresse;
     @NotBlank
     @Size(max = 50)
     @Email
@@ -52,11 +52,11 @@ public class User {
 
 
     public String getAdresse() {
-        return Adresse;
+        return adresse;
     }
 
     public void setAdresse(String adresse) {
-        Adresse = adresse;
+        adresse = adresse;
     }
 
     public void setResetpasswordcode(String resetpasswordcode) {
@@ -80,12 +80,14 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password,String adresse,String fullname) {
         this.username = username;
         this.email = email;
         this.password = password;
-    }
 
+        this.fullname =fullname;
+        this.adresse=adresse;
+    }
     public Long getId() {
         return id;
     }

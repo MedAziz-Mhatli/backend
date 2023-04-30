@@ -43,4 +43,17 @@ public class iUserServiceImp implements IUserService {
     public User updateUser(User u) {
         return userRepository.save(u);
     }
+
+    public User updateUser(User user, Long id) {
+        User existingUser = getUser(id).get();
+        if (existingUser != null) {
+            existingUser.setUsername(user.getUsername());
+            existingUser.setFullname(user.getFullname());
+            existingUser.setEmail(user.getEmail());
+            existingUser.setAdresse(user.getAdresse());
+            return userRepository.save(existingUser);
+        }
+        return null;
+    }
+
 }
