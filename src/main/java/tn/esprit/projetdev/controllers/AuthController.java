@@ -83,7 +83,8 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(jwt,
                 refreshToken.getToken(),
                 userDetails.getId(),
-                userDetails.getUsername()
+                userDetails.getUsername(),
+                userDetails.getFullname()
                 , userDetails.getEmail()
                 , roles));
     }
@@ -133,7 +134,7 @@ public class AuthController {
 
         user.setVerificationCode(verificationCode);
         user.setAdresse(signUpRequest.getAdresse());
-        
+        user.setFullname(signUpRequest.getFullname());
         User u=userRepository.save(user);
         
         //Envoi de mail de confirmation avec le code de verification

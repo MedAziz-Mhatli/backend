@@ -113,10 +113,9 @@ public class UserController {
         
         if(signUpRequest.getPassword()!="") {
         	user.setPassword(encoder.encode(signUpRequest.getPassword()));
-        	User u=userRepository.save(user);
         }
         User u=userRepository.save(user);
-        
+        System.out.println(u.getFullname());
         return ResponseEntity.ok(u);
     	
     }
