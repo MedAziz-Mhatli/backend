@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class SignupRequest {
 
+	private Long id;
     @NotBlank
     @Size(min = 3, max = 20)
     private String username;
@@ -29,8 +30,8 @@ public class SignupRequest {
         this.fullname = fullname;
     }
 
-    @NotBlank
-    @Size(min = 6, max = 40)
+    /*@NotBlank
+    @Size(min = 6, max = 40)*/
     private String password;
 
     public String getUsername() {
@@ -69,6 +70,12 @@ public class SignupRequest {
     }
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+    public Long getId() {
+        return this.id;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 
 

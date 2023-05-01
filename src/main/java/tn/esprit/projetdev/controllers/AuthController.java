@@ -132,8 +132,10 @@ public class AuthController {
         String verificationCode= UUID.randomUUID().toString();
 
         user.setVerificationCode(verificationCode);
-        User u=userRepository.save(user);
         user.setAdresse(signUpRequest.getAdresse());
+        
+        User u=userRepository.save(user);
+        
         //Envoi de mail de confirmation avec le code de verification
         String appUrl = request.getScheme()+"://"+request.getServerName();
         SimpleMailMessage mailMessage = new SimpleMailMessage();
